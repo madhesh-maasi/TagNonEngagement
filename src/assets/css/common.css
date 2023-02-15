@@ -1,0 +1,230 @@
+/*100% Workbench*/
+.CanvasZone {
+    margin: 0px !important;
+    padding: 0px !important;
+    max-width: 100%;
+}
+
+.ToolboxHint {
+    display: none;
+}
+
+#workbenchPageContent {
+    max-width: 100%;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+    left: 0px;
+}
+
+.titlebar {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+}
+
+.fullimg {
+    width: 100%;
+}
+
+.text-left {
+    text-align: left !important;
+}
+.text-right
+{
+    text-align: right !important;
+}
+.dflex {
+    display: flex;
+}
+
+.jc {
+    justify-content: end;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.disb {
+    display: block;
+}
+.disib {
+    display: inline-block;
+}
+.w100{
+    width:100%
+}
+.fontWhite{
+    color: #fff !important;
+}
+/* margins */
+
+.mtb5 {
+    margin: 0.5rem
+}
+
+.mt1 {
+    margin-top: 1rem !important;
+}
+
+.mt10 {
+    margin-top: 10px !important;
+}
+
+.mt15 {
+    margin-top: 15px !important;
+}
+
+.mt30 {
+    margin-top: 30px !important;
+}
+
+.ml1 {
+    margin-left: 1rem !important;
+}
+
+.ml15 {
+    margin-left: 15px !important;
+}
+
+.mb10 {
+    margin-bottom: 10px !important;
+}
+
+.tal {
+    text-align: left !important;
+}
+
+.Dropdown-control {
+    padding: 3px 30px 3px 10px;
+}
+
+.form-controls label {
+    margin-right: 10px;
+    vertical-align: top;
+    margin-top: 4px;
+    min-width: 20%;
+    text-align: right;
+}
+
+.form-controls .Dropdown-root {
+    display: inline-block;
+    min-width: 70%;
+}
+
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+    cursor: not-allowed !important;
+    opacity: 0.55 !important;
+    pointer-events: auto;
+}
+
+.headingtitlebar {
+    text-align: center;
+    padding: 2px 18px;
+    background-color: #0078d4;
+    font-size: 16px;
+    color: #fff;
+    margin: 20px 0 0 0 !important;
+    margin: 0px auto;
+    font-weight: 600;
+
+}
+
+.subContainer {
+    padding: 15px;
+}
+
+.sectionContainer {
+    margin-bottom: 10px;
+
+    box-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+}
+
+.table thead {
+    background-color: #deecf9;
+}
+
+.table>:not(:first-child) {
+    border: none;
+}
+
+.table>:not(caption)>*>* {
+    padding: .3rem .5rem;
+}
+
+.sectionContainer textarea {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    padding: 6px 8px;
+    resize: none;
+}
+
+.sectionContainer textarea:focus-visible {
+    outline-color: #005a9e;
+}
+
+.blueLabel {
+    color: #216baf;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.summaryContainer {
+    padding: 25px 20px 0px 15px;
+}
+
+.sectionContainer .Dropdown-control,
+.sectionContainer .Dropdown-menu {
+    width: 100%;
+}
+
+.Dropdown-option {
+    padding: 3px 10px;
+    
+}
+
+.greysubContainer {
+    background: grey;
+    padding: 20px 0 5px 0;
+}
+
+.greysubContainer textarea {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    padding: 6px 8px;
+    border-radius: 8px;
+}
+
+.signoffhistory{
+    border: 1px solid #767676;
+   
+    padding: 5px 10px;overflow-y: auto;
+}
+.btn-primary{
+    background-color: #0078d4 !important;
+    border-color: #0078d4;
+}
+.btn-outline-dark:hover{
+    background-color: rgb(243, 242, 241);
+    color: rgb(32, 31, 30);
+}
+.btn{
+    height: 32px;
+    padding: 0 .75rem;
+    border-radius: .20rem;
+}
+
+.mr15{
+    margin-right: 15px !important;
+}
