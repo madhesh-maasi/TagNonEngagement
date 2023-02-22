@@ -1,4 +1,5 @@
 /*100% Workbench*/
+
 .CanvasZone {
     margin: 0px !important;
     padding: 0px !important;
@@ -31,10 +32,11 @@
 .text-left {
     text-align: left !important;
 }
-.text-right
-{
+
+.text-right {
     text-align: right !important;
 }
+
 .dflex {
     display: flex;
 }
@@ -50,15 +52,20 @@
 .disb {
     display: block;
 }
+
 .disib {
     display: inline-block;
 }
-.w100{
-    width:100%
+
+.w100 {
+    width: 100%
 }
-.fontWhite{
+
+.fontWhite {
     color: #fff !important;
 }
+
+
 /* margins */
 
 .mtb5 {
@@ -131,7 +138,6 @@ fieldset:disabled .btn {
     margin: 20px 0 0 0 !important;
     margin: 0px auto;
     font-weight: 600;
-
 }
 
 .subContainer {
@@ -140,7 +146,6 @@ fieldset:disabled .btn {
 
 .sectionContainer {
     margin-bottom: 10px;
-
     box-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
 }
 
@@ -180,7 +185,7 @@ fieldset:disabled .btn {
 }
 
 .summaryContainer {
-    padding: 25px 20px 0px 15px;
+    padding: 20px;
 }
 
 .sectionContainer .Dropdown-control,
@@ -190,7 +195,6 @@ fieldset:disabled .btn {
 
 .Dropdown-option {
     padding: 3px 10px;
-    
 }
 
 .greysubContainer {
@@ -206,25 +210,28 @@ fieldset:disabled .btn {
     border-radius: 8px;
 }
 
-.signoffhistory{
+.signoffhistory {
     border: 1px solid #767676;
-   
-    padding: 5px 10px;overflow-y: auto;
+    padding: 5px 10px;
+    overflow-y: auto;
 }
-.btn-primary{
+
+.btn-primary {
     background-color: #0078d4 !important;
     border-color: #0078d4;
 }
-.btn-outline-dark:hover{
+
+.btn-outline-dark:hover {
     background-color: rgb(243, 242, 241);
     color: rgb(32, 31, 30);
 }
-.btn{
+
+.btn {
     height: 32px;
     padding: 0 .75rem;
     border-radius: .20rem;
 }
 
-.mr15{
+.mr15 {
     margin-right: 15px !important;
 }
