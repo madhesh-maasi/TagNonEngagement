@@ -1519,7 +1519,7 @@ export default class RevieweeForm extends React.Component<any, {}> {
           </div>
           <div className="sectionContainer">
             <div className="headingtitlebar">
-              Non-engagement Performance Summary
+              Non-Engagement Performance Summary
             </div>
 
             <div className="sectionContainer">
@@ -1548,7 +1548,7 @@ export default class RevieweeForm extends React.Component<any, {}> {
                     Competency
                   </div>
                   <div className={"col-md-7 " + styles.boldlabel}>
-                    Behaviors
+                    RDTA Behaviors
                   </div>
                   <div className={"col-md-2 " + styles.boldlabel}>
                     Proficiency
@@ -1901,6 +1901,12 @@ export default class RevieweeForm extends React.Component<any, {}> {
                     </button>{" "}
                     <button
                       className="btn btn-secondary ml1"
+                      style={{
+                        cursor: "pointer",
+                        background: "#49e90ad0",
+                        border: '1px solid #002b49',
+                        color: '#000'
+                      }}
                       onClick={() => this.saveData(4)}
                     >
                       Submit To Reviewee For Acknowledgement
@@ -1949,6 +1955,12 @@ export default class RevieweeForm extends React.Component<any, {}> {
                     </button>
                     <button
                       className="btn btn-secondary ml1"
+                      style={{
+                        cursor: "pointer",
+                        background: "#49e90ad0",
+                        border: '1px solid #002b49',
+                        color: '#000'
+                      }}
                       onClick={() => this.saveData(6)}
                     >
                       Submit Final Review
@@ -1969,6 +1981,11 @@ export default class RevieweeForm extends React.Component<any, {}> {
                         cursor: this.isRevieweeSubmit()
                           ? "pointer"
                           : "not-allowed",
+                        background: this.isRevieweeSubmit()
+                        ? "#49e90ad0"
+                        : "#ff9",
+                        border: '1px solid #002b49',
+                        color: '#000'
                       }}
                       disabled={!this.isRevieweeSubmit()}
                       title={
