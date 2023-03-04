@@ -649,7 +649,7 @@ export default class SubmitSplitAdmin extends React.Component<
                 <div className={styles.lblReviewIDs}>
                   <Label className={styles.lblText}>
                     <b>Reviewee Name</b>
-                    <span style={{ color: "#ff0000" }}>*</span>
+                    <span style={{ color: "#ff0000" }}> * </span>
                   </Label>
                 </div>
                 <div className={styles.txtReviewIDs}>
@@ -690,7 +690,7 @@ export default class SubmitSplitAdmin extends React.Component<
                       <div className={styles.lblReviewIDs}>
                         <Label className={styles.lblText}>
                           <b>Source Review ID (Choose from below): </b>
-                          <span style={{ color: "#ff0000" }}>*</span>
+                          <span style={{ color: "#ff0000" }}> * </span>
                         </Label>
                       </div>
                       <div className={styles.txtReviewIDs}>
@@ -710,7 +710,7 @@ export default class SubmitSplitAdmin extends React.Component<
                         {" "}
                         <Label className={styles.lblText}>
                           <b>Hours to Review </b>
-                          <span style={{ color: "#ff0000" }}>*</span>
+                          <span style={{ color: "#ff0000" }}> * </span>
                         </Label>
                       </div>
                       <div className={styles.txtReviewIDs}>
@@ -731,7 +731,7 @@ export default class SubmitSplitAdmin extends React.Component<
                         <b>
                           (Example: Acme Software Implementation - Phase 1){" "}
                         </b>
-                        <span style={{ color: "#ff0000" }}>*</span>{" "}
+                        <span style={{ color: "#ff0000" }}> * </span>{" "}
                       </Label>
                     </div>
                     <div className={styles.txtReviewIDs}>
@@ -750,7 +750,7 @@ export default class SubmitSplitAdmin extends React.Component<
                       <Label className={styles.lblText}>
                         <b>
                           Service Line:
-                          <span style={{ color: "#ff0000" }}>*</span>
+                          <span style={{ color: "#ff0000" }}> * </span>
                         </b>
                       </Label>
                     </div>
@@ -772,7 +772,7 @@ export default class SubmitSplitAdmin extends React.Component<
                       {" "}
                       <Label className={styles.lblText}>
                         <b>
-                          Job Title<span style={{ color: "#ff0000" }}>*</span>
+                          Job Title<span style={{ color: "#ff0000" }}> * </span>
                         </b>
                       </Label>
                     </div>
@@ -789,7 +789,7 @@ export default class SubmitSplitAdmin extends React.Component<
                     </div>
                   </div>
 
-                  <div className={styles.divFullWidth}>
+                  <div className={styles.btnleft}>
                     {(this.state.IsCreateMode ||
                       this.state.hasEditItemPermission) && (
                       <PrimaryButton

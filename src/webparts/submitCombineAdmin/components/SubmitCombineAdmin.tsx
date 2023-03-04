@@ -534,7 +534,7 @@ export default class SubmitCombineAdmin extends React.Component<
                 <div className={styles.lblTitle}>
                   <Label className={styles.lblText}>
                     <b>Reviewee Name</b>
-                    <span style={{ color: "#ff0000" }}>*</span>
+                    <span style={{ color: "#ff0000" }}> * </span>
                   </Label>
                 </div>
                 <div className={styles.txtReviewIDsTextBox1}>
@@ -577,7 +577,7 @@ export default class SubmitCombineAdmin extends React.Component<
                     <div className={styles.lblTitle}>
                       <Label className={styles.lblText}>
                         <b>Review IDs to combine</b>
-                        <span style={{ color: "#ff0000" }}>*</span>
+                        <span style={{ color: "#ff0000" }}> * </span>
                         <br />
                         <b>
                           Separate with commas - no spaces. Example: 12,15,20
@@ -600,7 +600,7 @@ export default class SubmitCombineAdmin extends React.Component<
                     <div className={styles.lblTitle}>
                       <Label>
                         <b>Combined Review's Title</b>
-                        <span style={{ color: "#ff0000" }}>*</span>
+                        <span style={{ color: "#ff0000" }}> * </span>
                       </Label>
                     </div>
                     <div className={styles.txtReviewIDsTextBox1}>
@@ -612,32 +612,13 @@ export default class SubmitCombineAdmin extends React.Component<
                         className={styles.Multilinetextarea}
                       ></TextField>{" "}
                     </div>
-                    <div
-                      style={{ width: "20% !important" }}
-                      className={styles.lblTitle}
-                    >
-                      <Label>
-                        <b>Last Date Hours Billed (If Known)</b>
-                      </Label>
-                    </div>
-                    <div className={styles.txtReviewIDs}>
-                      <DateTimePicker
-                        dateConvention={DateConvention.Date}
-                        timeConvention={TimeConvention.Hours12}
-                        timeDisplayControlType={TimeDisplayControlType.Dropdown}
-                        showLabels={false}
-                        value={this.state.CombineAdmin.LastHoursBilled}
-                        formatDate={this._onFormatDate}
-                        onChange={this.onchangedLastDateHoursBilled}
-                      />
-                    </div>
                   </div>
 
                   <div className={styles.row}>
                     <div className={styles.lblTitle}>
                       <Label>
                         <b>Client Name </b>{" "}
-                        <span style={{ color: "#ff0000" }}>*</span>
+                        <span style={{ color: "#ff0000" }}> * </span>
                       </Label>
                     </div>
                     <div className={styles.txtReviewIDsTextBox1}>
@@ -649,26 +630,6 @@ export default class SubmitCombineAdmin extends React.Component<
                         className={styles.Multilinetextarea}
                       ></TextField>
                     </div>
-                    <div
-                      style={{ width: "20% !important" }}
-                      className={styles.lblTitle}
-                    >
-                      <Label>
-                        <b>Job Title</b>
-                        <span style={{ color: "#ff0000" }}>*</span>
-                      </Label>
-                    </div>{" "}
-                    <div className={styles.txtReviewIDs}>
-                      <Dropdown
-                        className={styles.dropServiceLine}
-                        options={this.JobTitleOptions}
-                        selectedKey={this.state.CombineAdmin.JobTitle}
-                        placeholder="Please Select Value"
-                        onChange={(e, selectedOption) => {
-                          this.onChangeJobTitle(selectedOption.text);
-                        }}
-                      />
-                    </div>
                   </div>
 
                   <div
@@ -679,7 +640,7 @@ export default class SubmitCombineAdmin extends React.Component<
                       <Label>
                         <b>
                           Service Line
-                          <span style={{ color: "#ff0000" }}>*</span>
+                          <span style={{ color: "#ff0000" }}> * </span>
                         </b>
                       </Label>
                     </div>
@@ -702,7 +663,7 @@ export default class SubmitCombineAdmin extends React.Component<
                     <div className={styles.lblTitle}>
                       <Label>
                         <b>Project Start Date </b>
-                        <span style={{ color: "#ff0000" }}>*</span>
+                        <span style={{ color: "#ff0000" }}> * </span>
                       </Label>
                     </div>
                     <div className={styles.txtReviewIDsTextBox1}>
@@ -725,7 +686,7 @@ export default class SubmitCombineAdmin extends React.Component<
                     <div className={styles.lblTitle}>
                       <Label>
                         <b>Project End Date </b>
-                        <span style={{ color: "#ff0000" }}>*</span>
+                        <span style={{ color: "#ff0000" }}> * </span>
                       </Label>
                     </div>
                     <div className={styles.txtReviewIDsTextBox1}>
@@ -740,7 +701,56 @@ export default class SubmitCombineAdmin extends React.Component<
                       />
                     </div>
                   </div>
-                  <div className={styles.divFullWidth}>
+                  <div
+                    style={{ paddingTop: "15px !important" }}
+                    className={styles.row}
+                  >
+                    <div
+                      // style={{ width: "20% !important" }}
+                      className={styles.lblTitle}
+                    >
+                      <Label>
+                        <b>Last Date Hours Billed (If Known)</b>
+                      </Label>
+                    </div>
+                    <div className={styles.txtReviewIDsTextBox1}>
+                      <DateTimePicker
+                        dateConvention={DateConvention.Date}
+                        timeConvention={TimeConvention.Hours12}
+                        timeDisplayControlType={TimeDisplayControlType.Dropdown}
+                        showLabels={false}
+                        value={this.state.CombineAdmin.LastHoursBilled}
+                        formatDate={this._onFormatDate}
+                        onChange={this.onchangedLastDateHoursBilled}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    style={{ paddingTop: "15px !important" }}
+                    className={styles.row}
+                  >
+                    <div
+                      // style={{ width: "20% !important" }}
+                      className={styles.lblTitle}
+                    >
+                      <Label>
+                        <b>Job Title</b>
+                        <span style={{ color: "#ff0000" }}> * </span>
+                      </Label>
+                    </div>{" "}
+                    <div className={styles.txtReviewIDsTextBox1}>
+                      <Dropdown
+                        className={styles.dropServiceLine}
+                        options={this.JobTitleOptions}
+                        selectedKey={this.state.CombineAdmin.JobTitle}
+                        placeholder="Please Select Value"
+                        onChange={(e, selectedOption) => {
+                          this.onChangeJobTitle(selectedOption.text);
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.btnleft}>
                     {(this.state.IsCreateMode ||
                       this.state.hasEditItemPermission) && (
                       <PrimaryButton
