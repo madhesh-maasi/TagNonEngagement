@@ -300,7 +300,7 @@ export default class SubmitCombineReviews extends React.Component<
                   <Label>
                     <b>
                       Review IDs to combine:{" "}
-                      <span style={{ color: "#ff0000" }}>*</span>
+                      <span style={{ color: "#ff0000" }}> * </span>
                       <br />
                       Separate with commas - no spaces. Example: 12,15,20
                     </b>
@@ -321,7 +321,7 @@ export default class SubmitCombineReviews extends React.Component<
                   {" "}
                   <Label>
                     <b>Combined Review's Title </b>{" "}
-                    <span style={{ color: "#ff0000" }}>*</span>
+                    <span style={{ color: "#ff0000" }}> * </span>
                   </Label>
                 </div>
                 <div className={styles.txtReview}>
@@ -339,7 +339,7 @@ export default class SubmitCombineReviews extends React.Component<
                   {" "}
                   <Label>
                     <b>Client Name </b>{" "}
-                    <span style={{ color: "#ff0000" }}>*</span>
+                    <span style={{ color: "#ff0000" }}> * </span>
                   </Label>
                 </div>
                 <div className={styles.txtReview}>
@@ -357,7 +357,7 @@ export default class SubmitCombineReviews extends React.Component<
                   {" "}
                   <Label>
                     <b>Service Line: </b>
-                    <span style={{ color: "#ff0000" }}>*</span>
+                    <span style={{ color: "#ff0000" }}> * </span>
                   </Label>
                 </div>
                 <div className={styles.txtReview}>
@@ -378,7 +378,7 @@ export default class SubmitCombineReviews extends React.Component<
                   {" "}
                   <Label>
                     <b>Project Start Date </b>
-                    <span style={{ color: "#ff0000" }}>*</span>
+                    <span style={{ color: "#ff0000" }}> * </span>
                   </Label>
                 </div>
                 <div className={styles.txtReview}>
@@ -392,8 +392,30 @@ export default class SubmitCombineReviews extends React.Component<
                     onChange={this.onchangedProjectStartDate}
                   />
                 </div>
+              </div>
 
-                <div className={styles.lblReviewIDs1}>
+              <div className={styles.row}>
+                <div className={styles.lblReviewIDs}>
+                  {" "}
+                  <Label>
+                    <b>Project End Date </b>
+                    <span style={{ color: "#ff0000" }}> * </span>
+                  </Label>
+                </div>
+                <div className={styles.txtReview}>
+                  <DateTimePicker
+                    dateConvention={DateConvention.Date}
+                    timeConvention={TimeConvention.Hours12}
+                    timeDisplayControlType={TimeDisplayControlType.Dropdown}
+                    showLabels={false}
+                    formatDate={this._onFormatDate}
+                    value={this.state.CombineReviews.ProjectEndDate}
+                    onChange={this.onchangedProjectEndDate}
+                  />
+                </div>
+              </div>
+              <div className={styles.row}>
+                <div className={styles.lblReviewIDs}>
                   <Label>
                     <b>
                       Last Date Hours Billed <br />
@@ -413,32 +435,12 @@ export default class SubmitCombineReviews extends React.Component<
                   />
                 </div>
               </div>
-
               <div className={styles.row}>
                 <div className={styles.lblReviewIDs}>
-                  {" "}
-                  <Label>
-                    <b>Project End Date </b>
-                    <span style={{ color: "#ff0000" }}>*</span>
-                  </Label>
-                </div>
-                <div className={styles.txtReview}>
-                  <DateTimePicker
-                    dateConvention={DateConvention.Date}
-                    timeConvention={TimeConvention.Hours12}
-                    timeDisplayControlType={TimeDisplayControlType.Dropdown}
-                    showLabels={false}
-                    formatDate={this._onFormatDate}
-                    value={this.state.CombineReviews.ProjectEndDate}
-                    onChange={this.onchangedProjectEndDate}
-                  />
-                </div>
-
-                <div className={styles.lblReviewIDs1}>
                   <Label>
                     <b>
                       Job Title of Combined Review{" "}
-                      <span style={{ color: "#ff0000" }}>*</span>
+                      <span style={{ color: "#ff0000" }}> * </span>
                       <br />
                       (This determines the review template)
                     </b>
@@ -456,8 +458,7 @@ export default class SubmitCombineReviews extends React.Component<
                   />
                 </div>
               </div>
-
-              <div className={styles.divFullWidth}>
+              <div className={styles.btnleft}>
                 {this.state.IsCreateMode && (
                   <PrimaryButton
                     className={

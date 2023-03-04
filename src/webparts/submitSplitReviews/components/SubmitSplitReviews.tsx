@@ -250,7 +250,7 @@ export default class SubmitSplitReviews extends React.Component<
               <Label>
                 <b>
                   Source Review ID (Choose from below):{" "}
-                  <span style={{ color: "#ff0000" }}>*</span>
+                  <span style={{ color: "#ff0000" }}> * </span>
                 </b>
               </Label>
             </div>
@@ -263,28 +263,16 @@ export default class SubmitSplitReviews extends React.Component<
                 onChange={this.onChangeSourceReviewID}
               ></TextField>{" "}
             </div>
-
-            <div className={styles.lblHourstoReview}>
-              {" "}
-              <Label>
-                <b>Hours to Review </b>
-              </Label>
-            </div>
-            <div className={styles.txtSourceReviewID}>
-              <TextField
-                resizable={false}
-                multiline={false}
-                value={this.state.SplitReviews.HourstoReview}
-                onChange={this.onChangeHourstoReview}
-              ></TextField>{" "}
-            </div>
           </div>
 
           <div className={styles.row}>
             <div className={styles.lblSourceReviewID}>
               <Label className={styles.lblText}>
-                <b>Title of new Split Review</b> <br />
-                <b>(Example: Acme Software Implementation - Phase 1) </b>
+                <b>
+                  Title of new Split Review
+                  <span style={{ color: "#ff0000" }}> * </span> <br />
+                  (Example: Acme Software Implementation - Phase 1){" "}
+                </b>
               </Label>
             </div>
             <div className={styles.txtSourceReviewID}>
@@ -302,7 +290,7 @@ export default class SubmitSplitReviews extends React.Component<
               {" "}
               <Label>
                 <b>
-                  Service Line <span style={{ color: "#ff0000" }}>*</span>
+                  Service Line <span style={{ color: "#ff0000" }}> * </span>
                 </b>
               </Label>
             </div>
@@ -322,7 +310,7 @@ export default class SubmitSplitReviews extends React.Component<
               {" "}
               <Label>
                 <b>
-                  Job Title <span style={{ color: "#ff0000" }}>*</span>
+                  Job Title <span style={{ color: "#ff0000" }}> * </span>
                 </b>
               </Label>
             </div>
@@ -337,8 +325,24 @@ export default class SubmitSplitReviews extends React.Component<
               />
             </div>
           </div>
+          <div className={styles.row}>
+            <div className={styles.lblSourceReviewID}>
+              {" "}
+              <Label>
+                <b>Hours to Review </b>
+              </Label>
+            </div>
+            <div className={styles.txtSourceReviewID}>
+              <TextField
+                resizable={false}
+                multiline={false}
+                value={this.state.SplitReviews.HourstoReview}
+                onChange={this.onChangeHourstoReview}
+              ></TextField>{" "}
+            </div>
+          </div>
 
-          <div className={styles.divFullWidth}>
+          <div className={styles.btnleft}>
             {this.state.IsCreateMode && (
               <PrimaryButton
                 className={

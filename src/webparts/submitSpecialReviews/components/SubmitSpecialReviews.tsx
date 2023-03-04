@@ -401,7 +401,7 @@ export default class SubmitSpecialReviews extends React.Component<
                   {" "}
                   <Label>
                     <b>
-                      Project Name<span style={{ color: "#ff0000" }}>*</span>
+                      Project Name<span style={{ color: "#ff0000" }}> * </span>
                     </b>
                   </Label>
                 </div>
@@ -420,7 +420,7 @@ export default class SubmitSpecialReviews extends React.Component<
                   {" "}
                   <Label>
                     <b>
-                      Reviewee Name<span style={{ color: "#ff0000" }}>*</span>
+                      Reviewee Name<span style={{ color: "#ff0000" }}> * </span>
                     </b>
                   </Label>
                 </div>
@@ -448,7 +448,7 @@ export default class SubmitSpecialReviews extends React.Component<
                   {" "}
                   <Label>
                     <b>
-                      Lead MD Name<span style={{ color: "#ff0000" }}>*</span>
+                      Lead MD Name<span style={{ color: "#ff0000" }}> * </span>
                     </b>
                   </Label>
                 </div>
@@ -476,7 +476,7 @@ export default class SubmitSpecialReviews extends React.Component<
                   {" "}
                   <Label>
                     <b>
-                      Project Code<span style={{ color: "#ff0000" }}>*</span>
+                      Project Code<span style={{ color: "#ff0000" }}> * </span>
                     </b>
                   </Label>
                 </div>
@@ -494,7 +494,7 @@ export default class SubmitSpecialReviews extends React.Component<
                   {" "}
                   <Label>
                     <b>
-                      Client Name<span style={{ color: "#ff0000" }}>*</span>
+                      Client Name<span style={{ color: "#ff0000" }}> * </span>
                     </b>
                   </Label>
                 </div>
@@ -515,7 +515,7 @@ export default class SubmitSpecialReviews extends React.Component<
                 <Label>
                   <b>
                     Project Start Date
-                    <span style={{ color: "#ff0000" }}>*</span>
+                    <span style={{ color: "#ff0000" }}> * </span>
                   </b>
                 </Label>
               </div>
@@ -537,7 +537,8 @@ export default class SubmitSpecialReviews extends React.Component<
                 {" "}
                 <Label>
                   <b>
-                    Project End Date<span style={{ color: "#ff0000" }}>*</span>
+                    Project End Date
+                    <span style={{ color: "#ff0000" }}> * </span>
                   </b>
                 </Label>
               </div>
@@ -558,7 +559,7 @@ export default class SubmitSpecialReviews extends React.Component<
                 {" "}
                 <Label>
                   <b>
-                    Hours Worked<span style={{ color: "#ff0000" }}>*</span>
+                    Hours Worked<span style={{ color: "#ff0000" }}> * </span>
                   </b>
                 </Label>
               </div>
@@ -660,7 +661,7 @@ export default class SubmitSpecialReviews extends React.Component<
               </div>
             </div>
 
-            <div className={styles.row}>
+            <div className={styles.btnleft}>
               {this.state.IsCreateMode && (
                 <PrimaryButton
                   className={
