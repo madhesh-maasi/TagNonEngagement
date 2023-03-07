@@ -423,7 +423,13 @@ export default class SubmitCombineAdmin extends React.Component<
   }
   private _onFormatDate = (date: Date): string => {
     return (
-      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+      // date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+      date.getMonth() +
+      1 +
+      "/" +
+      (date.getDate() + 1) +
+      "/" +
+      date.getFullYear()
     );
   };
   private _onSelectDate = (date: Date | null | undefined): void => {};
