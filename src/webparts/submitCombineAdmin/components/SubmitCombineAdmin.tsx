@@ -196,6 +196,10 @@ export default class SubmitCombineAdmin extends React.Component<
       text: "Capital Markets & Accounting Advisory",
     });
     dropDownOption.push({
+      key: "Data Intelligence Gateway",
+      text: "Data Intelligence Gateway",
+    });
+    dropDownOption.push({
       key: "Financial Due Diligence",
       text: "Financial Due Diligence",
     });
