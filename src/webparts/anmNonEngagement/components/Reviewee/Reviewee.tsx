@@ -286,7 +286,7 @@ export default class Reviewee extends React.Component<
 
                 <button
                   className="btn btn-outline-dark ml1"
-                  onClick={() => this.cancel() }
+                  onClick={() => this.cancel()}
                 >
                   Close
                 </button>

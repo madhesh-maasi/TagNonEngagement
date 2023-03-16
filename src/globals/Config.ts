@@ -295,6 +295,7 @@ export namespace Config {
     RDTAComments9: "RDTAComments9",
     RDTAComments10: "RDTAComments10",
 
+    LCComments: "LCComments",
     LCComments1: "LCComments1",
     LCComments2: "LCComments2",
     LCComments3: "LCComments3",
@@ -306,6 +307,7 @@ export namespace Config {
     LCComments9: "LCComments9",
     LCComments10: "LCComments10",
 
+    POComments: "POComments",
     POComments1: "POComments1",
     POComments2: "POComments2",
     POComments3: "POComments3",
@@ -317,6 +319,7 @@ export namespace Config {
     POComments9: "POComments9",
     POComments10: "POComments10",
 
+    RDCComments: "RDCComments",
     RDCComments1: "RDCComments1",
     RDCComments2: "RDCComments2",
     RDCComments3: "RDCComments3",

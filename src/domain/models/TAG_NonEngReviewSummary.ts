@@ -163,6 +163,7 @@ export class TAG_NonEngReviewSummary {
     public RDTAComments9: string;
     public RDTAComments10: string;
 
+    public LCComments: string;
     public LCComments1: string;
     public LCComments2: string;
     public LCComments3: string;
@@ -174,6 +175,7 @@ export class TAG_NonEngReviewSummary {
     public LCComments9: string;
     public LCComments10: string;
 
+    public POComments: string;
     public POComments1: string;
     public POComments2: string;
     public POComments3: string;
@@ -185,6 +187,7 @@ export class TAG_NonEngReviewSummary {
     public POComments9: string;
     public POComments10: string;
 
+    public RDCComments: string;
     public RDCComments1: string;
     public RDCComments2: string;
     public RDCComments3: string;

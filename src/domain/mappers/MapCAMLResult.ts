@@ -438,6 +438,8 @@ export default class MapCAMLResult extends ContextService {
     result.RDTAComments10 =
       item[Config.NonEngagementReviewTemplateColumns.RDTAComments10];
 
+    result.LCComments =
+      item[Config.NonEngagementReviewTemplateColumns.LCComments];
     result.LCComments1 =
       item[Config.NonEngagementReviewTemplateColumns.LCComments1];
     result.LCComments2 =
@@ -459,6 +461,8 @@ export default class MapCAMLResult extends ContextService {
     result.LCComments10 =
       item[Config.NonEngagementReviewTemplateColumns.LCComments10];
 
+    result.POComments =
+      item[Config.NonEngagementReviewTemplateColumns.POComments];
     result.POComments1 =
       item[Config.NonEngagementReviewTemplateColumns.POComments1];
     result.POComments2 =
@@ -480,6 +484,8 @@ export default class MapCAMLResult extends ContextService {
     result.POComments10 =
       item[Config.NonEngagementReviewTemplateColumns.POComments10];
 
+    result.RDCComments =
+      item[Config.NonEngagementReviewTemplateColumns.RDCComments];
     result.RDCComments1 =
       item[Config.NonEngagementReviewTemplateColumns.RDCComments1];
     result.RDCComments2 =

@@ -32,6 +32,7 @@ const dialogContentProps = {
 
 let finalQuestionsLength: number = null;
 let count: number = null;
+let countQues: number = null;
 
 export default class RevieweeForm extends React.Component<any, {}> {
   private listItemService: ListItemService;
@@ -93,6 +94,7 @@ export default class RevieweeForm extends React.Component<any, {}> {
   public async componentDidMount() {
     finalQuestionsLength = null;
     count = 0;
+    countQues = 0;
     let dateforamt = this.dateFormat(new Date());
     console.log("dateis", dateforamt);
     // SPComponentLoader.loadScript('/_layouts/15/init.js', {
@@ -284,6 +286,7 @@ export default class RevieweeForm extends React.Component<any, {}> {
           Config.NonEngagementReviewTemplateColumns.RDTAComments9,
           Config.NonEngagementReviewTemplateColumns.RDTAComments10,
 
+          Config.NonEngagementReviewTemplateColumns.LCComments,
           Config.NonEngagementReviewTemplateColumns.LCComments1,
           Config.NonEngagementReviewTemplateColumns.LCComments2,
           Config.NonEngagementReviewTemplateColumns.LCComments3,
@@ -295,6 +298,7 @@ export default class RevieweeForm extends React.Component<any, {}> {
           Config.NonEngagementReviewTemplateColumns.LCComments9,
           Config.NonEngagementReviewTemplateColumns.LCComments10,
 
+          Config.NonEngagementReviewTemplateColumns.POComments,
           Config.NonEngagementReviewTemplateColumns.POComments1,
           Config.NonEngagementReviewTemplateColumns.POComments2,
           Config.NonEngagementReviewTemplateColumns.POComments3,
@@ -306,6 +310,7 @@ export default class RevieweeForm extends React.Component<any, {}> {
           Config.NonEngagementReviewTemplateColumns.POComments9,
           Config.NonEngagementReviewTemplateColumns.POComments10,
 
+          Config.NonEngagementReviewTemplateColumns.RDCComments,
           Config.NonEngagementReviewTemplateColumns.RDCComments1,
           Config.NonEngagementReviewTemplateColumns.RDCComments2,
           Config.NonEngagementReviewTemplateColumns.RDCComments3,
@@ -354,10 +359,33 @@ export default class RevieweeForm extends React.Component<any, {}> {
       )
       .then((res) => {
         console.log("Questionaire..", res);
-        finalQuestionsLength = res.length;
-        console.log("finalQuestionsLength => ", finalQuestionsLength);
-        if (res) this.setState({ allQuestions: res });
+        /* Deva changes section start */
+        let arrFilterYearsBoolean: boolean[] = res.map((val: any) =>
+          val.Years.results.some(
+            (e: string) => e == nonEngReviewData["FiscalYear"]
+          )
+        );
+        let arrYearsIndex: number[] = [];
+        arrFilterYearsBoolean.map((data: boolean, i: number) => {
+          if (data == true) {
+            arrYearsIndex.push(i);
+          }
+        });
+        let arrCurrentQuestions: any[] = [];
+        arrYearsIndex.forEach((inum: number) => {
+          arrCurrentQuestions.push(res[inum]);
+        });
+        let a = arrCurrentQuestions.map((e: any) => e["SubModule"]);
+        let uniqueSubModule: any[] = a.filter(
+          (value, index, array) => array.indexOf(value) === index
+        );
+        countQues = uniqueSubModule.length;
+        /* Deva changes section end */
+        finalQuestionsLength = arrCurrentQuestions.length;
+        if (arrCurrentQuestions)
+          this.setState({ allQuestions: arrCurrentQuestions });
       });
+
     const camlFilterConditions =
       "<Where><Eq><FieldRef Name='Reviewee_x0020_Name' LookupId='TRUE' /><Value Type='Lookup'>" +
       nonEngReviewData.RevieweeName.Id +
@@ -600,6 +628,9 @@ export default class RevieweeForm extends React.Component<any, {}> {
     if (fields["Practice Operations10"]) {
       arrAllQuestion.push(fields["Practice Operations10"]);
     }
+    if (fields["Relationship Development Comments"]) {
+      arrAllQuestion.push(fields["Relationship Development Comments"]);
+    }
     if (fields["Relationship Development Comments1"]) {
       arrAllQuestion.push(fields["Relationship Development Comments1"]);
     }
@@ -629,6 +660,9 @@ export default class RevieweeForm extends React.Component<any, {}> {
     }
     if (fields["Relationship Development Comments10"]) {
       arrAllQuestion.push(fields["Relationship Development Comments10"]);
+    }
+    if (fields["Business DevelopmentComments"].trim()) {
+      arrAllQuestion.push(fields["Business DevelopmentComments"]);
     }
     if (fields["Business DevelopmentComments1"].trim()) {
       arrAllQuestion.push(fields["Business DevelopmentComments1"]);
@@ -660,6 +694,9 @@ export default class RevieweeForm extends React.Component<any, {}> {
     if (fields["Business DevelopmentComments10"].trim()) {
       arrAllQuestion.push(fields["Business DevelopmentComments10"]);
     }
+    if (fields["Relationship DevelopmentComments"].trim()) {
+      arrAllQuestion.push(fields["Relationship DevelopmentComments"]);
+    }
     if (fields["Relationship DevelopmentComments1"].trim()) {
       arrAllQuestion.push(fields["Relationship DevelopmentComments1"]);
     }
@@ -689,6 +726,9 @@ export default class RevieweeForm extends React.Component<any, {}> {
     }
     if (fields["Relationship DevelopmentComments10"].trim()) {
       arrAllQuestion.push(fields["Relationship DevelopmentComments10"]);
+    }
+    if (fields["Practice DevelopmentComments"].trim()) {
+      arrAllQuestion.push(fields["Practice DevelopmentComments"]);
     }
     if (fields["Practice DevelopmentComments1"].trim()) {
       arrAllQuestion.push(fields["Practice DevelopmentComments1"]);
@@ -720,6 +760,9 @@ export default class RevieweeForm extends React.Component<any, {}> {
     if (fields["Practice DevelopmentComments10"].trim()) {
       arrAllQuestion.push(fields["Practice DevelopmentComments10"]);
     }
+    if (fields["Developing RDTA characteristicsComments"].trim()) {
+      arrAllQuestion.push(fields["Developing RDTA characteristicsComments"]);
+    }
     if (fields["Developing RDTA characteristicsComments1"].trim()) {
       arrAllQuestion.push(fields["Developing RDTA characteristicsComments1"]);
     }
@@ -749,6 +792,9 @@ export default class RevieweeForm extends React.Component<any, {}> {
     }
     if (fields["Developing RDTA characteristicsComments10"].trim()) {
       arrAllQuestion.push(fields["Developing RDTA characteristicsComments10"]);
+    }
+    if (fields["Living Culture and Core ValuesComments"].trim()) {
+      arrAllQuestion.push(fields["Living Culture and Core ValuesComments"]);
     }
     if (fields["Living Culture and Core ValuesComments1"].trim()) {
       arrAllQuestion.push(fields["Living Culture and Core ValuesComments1"]);
@@ -780,6 +826,9 @@ export default class RevieweeForm extends React.Component<any, {}> {
     if (fields["Living Culture and Core ValuesComments10"].trim()) {
       arrAllQuestion.push(fields["Living Culture and Core ValuesComments10"]);
     }
+    if (fields["Practice OperationsComments"].trim()) {
+      arrAllQuestion.push(fields["Practice OperationsComments"]);
+    }
     if (fields["Practice OperationsComments1"].trim()) {
       arrAllQuestion.push(fields["Practice OperationsComments1"]);
     }
@@ -809,6 +858,9 @@ export default class RevieweeForm extends React.Component<any, {}> {
     }
     if (fields["Practice OperationsComments10"].trim()) {
       arrAllQuestion.push(fields["Practice OperationsComments10"]);
+    }
+    if (fields["Relationship Development CommentsComments"].trim()) {
+      arrAllQuestion.push(fields["Relationship Development CommentsComments"]);
     }
     if (fields["Relationship Development CommentsComments1"].trim()) {
       arrAllQuestion.push(fields["Relationship Development CommentsComments1"]);
@@ -842,8 +894,14 @@ export default class RevieweeForm extends React.Component<any, {}> {
         fields["Relationship Development CommentsComments10"]
       );
     }
-    if (finalQuestionsLength == arrAllQuestion.length) {
-      valid = true;
+    if (this.state["nonEngReviewData"]["FiscalYear"] <= "2022") {
+      if (finalQuestionsLength + countQues == arrAllQuestion.length) {
+        valid = true;
+      }
+    } else {
+      if (finalQuestionsLength == arrAllQuestion.length) {
+        valid = true;
+      }
     }
     return valid;
   };
@@ -1112,6 +1170,8 @@ export default class RevieweeForm extends React.Component<any, {}> {
     fields["Developing RDTA characteristicsComments10"] =
       data[Config.NonEngagementReviewTemplateColumns.RDTAComments10];
 
+    fields["Living Culture and Core ValuesComments"] =
+      data[Config.NonEngagementReviewTemplateColumns.LCComments];
     fields["Living Culture and Core ValuesComments1"] =
       data[Config.NonEngagementReviewTemplateColumns.LCComments1];
     fields["Living Culture and Core ValuesComments2"] =
@@ -1133,6 +1193,8 @@ export default class RevieweeForm extends React.Component<any, {}> {
     fields["Living Culture and Core ValuesComments10"] =
       data[Config.NonEngagementReviewTemplateColumns.LCComments10];
 
+    fields["Practice OperationsComments"] =
+      data[Config.NonEngagementReviewTemplateColumns.POComments];
     fields["Practice OperationsComments1"] =
       data[Config.NonEngagementReviewTemplateColumns.POComments1];
     fields["Practice OperationsComments2"] =
@@ -1154,6 +1216,8 @@ export default class RevieweeForm extends React.Component<any, {}> {
     fields["Practice OperationsComments10"] =
       data[Config.NonEngagementReviewTemplateColumns.POComments10];
 
+    fields["Relationship Development CommentsComments"] =
+      data[Config.NonEngagementReviewTemplateColumns.RDCComments];
     fields["Relationship Development CommentsComments1"] =
       data[Config.NonEngagementReviewTemplateColumns.RDCComments1];
     fields["Relationship Development CommentsComments2"] =
@@ -1202,94 +1266,60 @@ export default class RevieweeForm extends React.Component<any, {}> {
   public createQuestionaire = (): JSX.Element => {
     var rows = [];
     let row = [];
-    if (this.state["allQuestions"]) {
-      const groupData = this.state["allQuestions"].reduce(
-        (groups, item) => ({
-          ...groups,
-          [item.Module]: [...(groups[item.Module] || []), item],
-        }),
-        {}
-      );
-      let modules = Object.keys(groupData);
-      // console.log("modules", groupData, modules);
-      let strHtml = "";
-      row = modules.map((element, i) => {
-        //console.log("modules", modules);
-        let questions = this.state["allQuestions"].filter(
-          (x) => x["Module"] == element
-        );
-        const groupSubmoduleData = questions.reduce(
+    if (this.state["nonEngReviewData"]["FiscalYear"] <= "2022") {
+      if (this.state["allQuestions"]) {
+        const groupData = this.state["allQuestions"].reduce(
           (groups, item) => ({
             ...groups,
-            [item.SubModule]: [...(groups[item.SubModule] || []), item],
+            [item.Module]: [...(groups[item.Module] || []), item],
           }),
           {}
         );
-        let subModules = Object.keys(groupSubmoduleData);
-        //console.log("subModules", subModules);
-        {
-          return subModules.map((subModule, i) => {
-            let finalquestions = questions.filter(
-              (x) => x["SubModule"] == subModule
-            );
-            console.log("finalquestions", finalquestions);
-            return (
-              <div className="RD">
-                {i == 0 && (
-                  <div className="row mt10">
-                    <div className={"col-md-3 " + styles.boldlabel}>
-                      {element}
+        let modules = Object.keys(groupData);
+        row = modules.map((element, indexLength) => {
+          let questions = this.state["allQuestions"].filter(
+            (x) => x["Module"] == element
+          );
+          const groupSubmoduleData = questions.reduce(
+            (groups, item) => ({
+              ...groups,
+              [item.SubModule]: [...(groups[item.SubModule] || []), item],
+            }),
+            {}
+          );
+          let subModules = Object.keys(groupSubmoduleData);
+          {
+            return subModules.map((subModule, i) => {
+              let finalquestions = questions.filter(
+                (x) => x["SubModule"] == subModule
+              );
+              console.log("finalquestions", finalquestions);
+              return (
+                <div className="RD">
+                  {i == 0 && (
+                    <div className="row mt10">
+                      <div className={"col-md-3 " + styles.boldlabel}>
+                        {element}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {finalquestions.map((question, index) => {
-                  /* Deva Changes Start */
-                  return (
-                    <div>
-                      <div className="row mt15 mb10">
-                        {index == 0 ? (
-                          <div className={"col-md-3"}>
-                            {question["SubModule"]}
-                          </div>
-                        ) : (
-                          <div className={"col-md-3"} />
-                        )}
-                        <div className={"col-md-7"}>{question["Question"]}</div>
-                        {question["CommentaryBoxRequired"] ? (
-                          <>
-                            <div className={"col-md-2 "} />
-                            <div className="row">
-                              <div className={"col-md-3 " + styles.boldlabel} />
-                              <div className={"col-md-9 " + styles.boldlabel}>
-                                {/* <label htmlFor="" className="blueLabel">
-                                  Provide examples or describe areas for
-                                  improvement (commentary required)
-                                </label> */}
-                                <textarea
-                                  style={{ marginTop: "10px" }}
-                                  placeholder=""
-                                  value={
-                                    this.state["Fields"][
-                                      subModule + "Comments" + (index + 1)
-                                    ]
-                                  }
-                                  onChange={(e: any) => {
-                                    this.onEventChange(
-                                      e.target.value,
-                                      e.target.name + (index + 1)
-                                    );
-                                  }}
-                                  rows={4}
-                                  disabled={this.isDisabed}
-                                  name={subModule + "Comments"}
-                                />
-                              </div>
-                              <div className={"col-md-2 " + styles.boldlabel} />
+                  {finalquestions.map((question, index) => {
+                    return (
+                      <div>
+                        <div className="row mt15 mb10">
+                          {index == 0 ? (
+                            <div className={"col-md-3"}>
+                              {question["SubModule"]}
                             </div>
-                          </>
-                        ) : (
+                          ) : (
+                            <div className={"col-md-3"}></div>
+                          )}
+                          <div className={"col-md-7"}>
+                            {question["Question"]}
+                          </div>
                           <div className={"col-md-2 " + styles.boldlabel}>
+                            {/* <RatingDropDown value={this.state["Fields"]["BQ1"]} name="BQ1" /> */}
                             <Dropdown
                               className={
                                 this.isDisabed
@@ -1304,90 +1334,258 @@ export default class RevieweeForm extends React.Component<any, {}> {
                               }
                               placeholder="Select Ratings"
                               disabled={this.isDisabed}
-                              onChange={(e) => {
+                              onChange={(e) =>
                                 this.onRatingEventChange(
                                   e["value"],
                                   question["SubModule"] + (index + 1)
-                                );
-                              }}
+                                )
+                              }
                             />
+                          </div>
+                        </div>
+                        {index == finalquestions.length - 1 && (
+                          <div className="row">
+                            <div
+                              className={"col-md-3 " + styles.boldlabel}
+                            ></div>
+                            <div className={"col-md-9 " + styles.boldlabel}>
+                              <label htmlFor="" className="blueLabel">
+                                Provide examples or describe areas for
+                                improvement (commentary required)
+                              </label>
+                              <textarea
+                                style={{ marginTop: "10px" }}
+                                placeholder=""
+                                value={
+                                  this.state["Fields"][subModule + "Comments"]
+                                }
+                                // value={this.state["Fields"]["RDComments"]}
+                                onChange={(e: any) => {
+                                  this.onEventChange(
+                                    e.target.value,
+                                    e.target.name
+                                  );
+                                }}
+                                rows={4}
+                                disabled={this.isDisabed}
+                                name={subModule + "Comments"}
+                              ></textarea>
+                            </div>
+                            <div
+                              className={"col-md-2 " + styles.boldlabel}
+                            ></div>
                           </div>
                         )}
                       </div>
+                    );
+                  })}
+                </div>
+              );
+            });
+          }
+        });
+        // modules.forEach(element => {
+        //     rows.push("<div className='RD'><div className='row mt10'><div className={'col-md-3 ' + styles.boldlabel}>" +
+        //         + element + "</div></div>");
+        // });
+        // rows.push(strHtml);
+      }
+      console.log("row", row);
+      return <div className=""> {row}</div>;
+    } else {
+      if (this.state["allQuestions"]) {
+        const groupData = this.state["allQuestions"].reduce(
+          (groups, item) => ({
+            ...groups,
+            [item.Module]: [...(groups[item.Module] || []), item],
+          }),
+          {}
+        );
+        let modules = Object.keys(groupData);
+        // console.log("modules", groupData, modules);
+        let strHtml = "";
+        row = modules.map((element, i) => {
+          //console.log("modules", modules);
+          let questions = this.state["allQuestions"].filter(
+            (x) => x["Module"] == element
+          );
+          const groupSubmoduleData = questions.reduce(
+            (groups, item) => ({
+              ...groups,
+              [item.SubModule]: [...(groups[item.SubModule] || []), item],
+            }),
+            {}
+          );
+          let subModules = Object.keys(groupSubmoduleData);
+          //console.log("subModules", subModules);
+          {
+            return subModules.map((subModule, i) => {
+              let finalquestions = questions.filter(
+                (x) => x["SubModule"] == subModule
+              );
+              console.log("finalquestions", finalquestions);
+              return (
+                <div className="RD">
+                  {i == 0 && (
+                    <div className="row mt10">
+                      <div className={"col-md-3 " + styles.boldlabel}>
+                        {element}
+                      </div>
                     </div>
-                  );
-                  /* Deva Changes End */
+                  )}
 
-                  //   return (
-                  //     <div>
-                  //       <div className="row mt15 mb10">
-                  //         {index == 0 ? (
-                  //           <div className={"col-md-3"}>
-                  //             {question["SubModule"]}
-                  //           </div>
-                  //         ) : (
-                  //           <div className={"col-md-3"}></div>
-                  //         )}
-                  //         <div className={"col-md-7"}>{question["Question"]}</div>
-                  //         <div className={"col-md-2 " + styles.boldlabel}>
-                  //           {/* <RatingDropDown value={this.state["Fields"]["BQ1"]} name="BQ1" /> */}
-                  //           <Dropdown
-                  //             options={this.state["data"]}
-                  //             value={
-                  //               this.state["Fields"][
-                  //                 question["SubModule"] + (index + 1)
-                  //               ]
-                  //             }
-                  //             placeholder="Select Ratings"
-                  //             disabled={this.isDisabed}
-                  //             onChange={(e) =>
-                  //               this.onRatingEventChange(
-                  //                 e["value"],
-                  //                 question["SubModule"] + (index + 1)
-                  //               )
-                  //             }
-                  //           />
-                  //         </div>
-                  //       </div>
-                  //       {index == finalquestions.length - 1 && (
-                  //         <div className="row">
-                  //           <div className={"col-md-3 " + styles.boldlabel}></div>
-                  //           <div className={"col-md-9 " + styles.boldlabel}>
-                  //             <label htmlFor="" className="blueLabel">
-                  //               Provide examples or describe areas for improvement
-                  //               (commentary required)
-                  //             </label>
-                  //             <textarea
-                  //               placeholder=""
-                  //               value={
-                  //                 this.state["Fields"][subModule + "Comments"]
-                  //               }
-                  //               //value={this.state["Fields"]["RDComments"]}
-                  //               onChange={this.onEventChange}
-                  //               rows={4}
-                  //               disabled={this.isDisabed}
-                  //               name={subModule + "Comments"}
-                  //             ></textarea>
-                  //           </div>
-                  //           <div className={"col-md-2 " + styles.boldlabel}></div>
-                  //         </div>
-                  //       )}
-                  //     </div>
-                  //   );
-                })}
-              </div>
-            );
-          });
-        }
-      });
-      // modules.forEach(element => {
-      //     rows.push("<div className='RD'><div className='row mt10'><div className={'col-md-3 ' + styles.boldlabel}>" +
-      //         + element + "</div></div>");
-      // });
-      // rows.push(strHtml);
+                  {finalquestions.map((question, index) => {
+                    /* Deva Changes Start */
+                    return (
+                      <div>
+                        <div className="row mt15 mb10">
+                          {index == 0 ? (
+                            <div className={"col-md-3"}>
+                              {question["SubModule"]}
+                            </div>
+                          ) : (
+                            <div className={"col-md-3"} />
+                          )}
+                          <div className={"col-md-7"}>
+                            {question["Question"]}
+                          </div>
+                          {question["CommentaryBoxRequired"] ? (
+                            <>
+                              <div className={"col-md-2 "} />
+                              <div className="row">
+                                <div
+                                  className={"col-md-3 " + styles.boldlabel}
+                                />
+                                <div className={"col-md-9 " + styles.boldlabel}>
+                                  {/* <label htmlFor="" className="blueLabel">
+                                  Provide examples or describe areas for
+                                  improvement (commentary required)
+                                </label> */}
+                                  <textarea
+                                    style={{ marginTop: "10px" }}
+                                    placeholder=""
+                                    value={
+                                      this.state["Fields"][
+                                        subModule + "Comments" + (index + 1)
+                                      ]
+                                    }
+                                    onChange={(e: any) => {
+                                      this.onEventChange(
+                                        e.target.value,
+                                        e.target.name + (index + 1)
+                                      );
+                                    }}
+                                    rows={4}
+                                    disabled={this.isDisabed}
+                                    name={subModule + "Comments"}
+                                  />
+                                </div>
+                                <div
+                                  className={"col-md-2 " + styles.boldlabel}
+                                />
+                              </div>
+                            </>
+                          ) : (
+                            <div className={"col-md-2 " + styles.boldlabel}>
+                              <Dropdown
+                                className={
+                                  this.isDisabed
+                                    ? styles.RevieweeDropDownView
+                                    : styles.RevieweeDropDownEdit
+                                }
+                                options={this.state["data"]}
+                                value={
+                                  this.state["Fields"][
+                                    question["SubModule"] + (index + 1)
+                                  ]
+                                }
+                                placeholder="Select Ratings"
+                                disabled={this.isDisabed}
+                                onChange={(e) => {
+                                  this.onRatingEventChange(
+                                    e["value"],
+                                    question["SubModule"] + (index + 1)
+                                  );
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                    /* Deva Changes End */
+
+                    // return (
+                    //   <div>
+                    //     <div className="row mt15 mb10">
+                    //       {index == 0 ? (
+                    //         <div className={"col-md-3"}>
+                    //           {question["SubModule"]}
+                    //         </div>
+                    //       ) : (
+                    //         <div className={"col-md-3"}></div>
+                    //       )}
+                    //       <div className={"col-md-7"}>{question["Question"]}</div>
+                    //       <div className={"col-md-2 " + styles.boldlabel}>
+                    //         {/* <RatingDropDown value={this.state["Fields"]["BQ1"]} name="BQ1" /> */}
+                    //         <Dropdown
+                    //           options={this.state["data"]}
+                    //           value={
+                    //             this.state["Fields"][
+                    //               question["SubModule"] + (index + 1)
+                    //             ]
+                    //           }
+                    //           placeholder="Select Ratings"
+                    //           disabled={this.isDisabed}
+                    //           onChange={(e) =>
+                    //             this.onRatingEventChange(
+                    //               e["value"],
+                    //               question["SubModule"] + (index + 1)
+                    //             )
+                    //           }
+                    //         />
+                    //       </div>
+                    //     </div>
+                    //     {index == finalquestions.length - 1 && (
+                    //       <div className="row">
+                    //         <div className={"col-md-3 " + styles.boldlabel}></div>
+                    //         <div className={"col-md-9 " + styles.boldlabel}>
+                    //           <label htmlFor="" className="blueLabel">
+                    //             Provide examples or describe areas for improvement
+                    //             (commentary required)
+                    //           </label>
+                    //           <textarea
+                    //             placeholder=""
+                    //             value={
+                    //               this.state["Fields"][subModule + "Comments"]
+                    //             }
+                    //             // value={this.state["Fields"]["RDComments"]}
+                    //             onChange={() => this.onEventChange}
+                    //             rows={4}
+                    //             disabled={this.isDisabed}
+                    //             name={subModule + "Comments"}
+                    //           ></textarea>
+                    //         </div>
+                    //         <div className={"col-md-2 " + styles.boldlabel}></div>
+                    //       </div>
+                    //     )}
+                    //   </div>
+                    // );
+                  })}
+                </div>
+              );
+            });
+          }
+        });
+        // modules.forEach(element => {
+        //     rows.push("<div className='RD'><div className='row mt10'><div className={'col-md-3 ' + styles.boldlabel}>" +
+        //         + element + "</div></div>");
+        // });
+        // rows.push(strHtml);
+      }
+      console.log("row", row);
+      return <div className=""> {row}</div>;
     }
-    console.log("row", row);
-    return <div className=""> {row}</div>;
   };
 
   public render(): React.ReactElement<any> {
@@ -1904,8 +2102,8 @@ export default class RevieweeForm extends React.Component<any, {}> {
                       style={{
                         cursor: "pointer",
                         background: "#49e90ad0",
-                        border: '1px solid #002b49',
-                        color: '#000'
+                        border: "1px solid #002b49",
+                        color: "#000",
                       }}
                       onClick={() => this.saveData(4)}
                     >
@@ -1958,8 +2156,8 @@ export default class RevieweeForm extends React.Component<any, {}> {
                       style={{
                         cursor: "pointer",
                         background: "#49e90ad0",
-                        border: '1px solid #002b49',
-                        color: '#000'
+                        border: "1px solid #002b49",
+                        color: "#000",
                       }}
                       onClick={() => this.saveData(6)}
                     >
@@ -1982,10 +2180,10 @@ export default class RevieweeForm extends React.Component<any, {}> {
                           ? "pointer"
                           : "not-allowed",
                         background: this.isRevieweeSubmit()
-                        ? "#49e90ad0"
-                        : "#ff9",
-                        border: '1px solid #002b49',
-                        color: '#000'
+                          ? "#49e90ad0"
+                          : "#ff9",
+                        border: "1px solid #002b49",
+                        color: "#000",
                       }}
                       disabled={!this.isRevieweeSubmit()}
                       title={
@@ -2449,6 +2647,8 @@ export default class RevieweeForm extends React.Component<any, {}> {
     data[columns.RDTAComments10] =
       this.state["Fields"]["Developing RDTA characteristicsComments10"];
 
+    data[columns.LCComments] =
+      this.state["Fields"]["Living Culture and Core ValuesComments"];
     data[columns.LCComments1] =
       this.state["Fields"]["Living Culture and Core ValuesComments1"];
     data[columns.LCComments2] =
@@ -2470,6 +2670,8 @@ export default class RevieweeForm extends React.Component<any, {}> {
     data[columns.LCComments10] =
       this.state["Fields"]["Living Culture and Core ValuesComments10"];
 
+    data[columns.POComments] =
+      this.state["Fields"]["Practice OperationsComments"];
     data[columns.POComments1] =
       this.state["Fields"]["Practice OperationsComments1"];
     data[columns.POComments2] =
@@ -2491,6 +2693,8 @@ export default class RevieweeForm extends React.Component<any, {}> {
     data[columns.POComments10] =
       this.state["Fields"]["Practice OperationsComments10"];
 
+    data[columns.RDCComments] =
+      this.state["Fields"]["Relationship Development CommentsComments"];
     data[columns.RDCComments1] =
       this.state["Fields"]["Relationship Development CommentsComments1"];
     data[columns.RDCComments2] =
