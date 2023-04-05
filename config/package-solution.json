@@ -1,20 +1,30 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
-  "solution": {
-    "name": "anm-non-engagement-client-side-solution",
-    "id": "c83428ed-4e80-414d-997f-454420e84891",
-    "version": "4.0.0.15",
-    "includeClientSideAssets": true,
-    "isDomainIsolated": false,
-    "developer": {
-      "name": "",
-      "websiteUrl": "",
-      "privacyUrl": "",
-      "termsOfUseUrl": "",
-      "mpnId": ""
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "dev-anm-non-engagement-client-side-solution",
+        "id": "c83428ed-4e80-414d-997f-454420e84891",
+        "version": "4.0.0.15",
+        "includeClientSideAssets": true,
+        "isDomainIsolated": false,
+        "developer": {
+            "name": "",
+            "websiteUrl": "",
+            "privacyUrl": "",
+            "termsOfUseUrl": "",
+            "mpnId": ""
+        }
+    },
+    "paths": {
+        "zippedPackage": "solution/dev-anm-non-engagement.sppkg"
     }
-  },
-  "paths": {
-    "zippedPackage": "solution/anm-non-engagement.sppkg"
-  }
 }
+
+/*
+solution:-
+  TAG-Non-Engagement-Projects => anm-non-engagement-client-side-solution
+  DEV-Non-Engagement-Projects => dev-anm-non-engagement-client-side-solution
+
+zippedPackage:-
+  TAG-Non-Engagement-Projects => solution/anm-non-engagement.sppkg
+  DEV-Non-Engagement-Projects => solution/dev-anm-non-engagement.sppkg
+*/
