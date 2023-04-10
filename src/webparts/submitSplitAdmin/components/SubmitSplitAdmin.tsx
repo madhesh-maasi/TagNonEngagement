@@ -322,6 +322,10 @@ export default class SubmitSplitAdmin extends React.Component<
       key: "Global Transaction Analytics",
       text: "Global Transaction Analytics",
     });
+    dropDownOption.push({
+      key: "ESG",
+      text: "ESG",
+    });
     this.ServiceLines = dropDownOption;
     this.onChangeReviewerName = this.onChangeReviewerName.bind(this);
     this.onGETREVIEWS = this.onGETREVIEWS.bind(this);
