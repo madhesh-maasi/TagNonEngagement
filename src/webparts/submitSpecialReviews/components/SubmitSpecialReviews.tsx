@@ -71,6 +71,10 @@ export default class SubmitSpecialReviews extends React.Component<
       key: "Data Intelligence Gateway",
       text: "Data Intelligence Gateway",
     });
+    dropDownOption.push({
+      key: "ESG",
+      text: "ESG",
+    });
     this.ServiceLines = dropDownOption;
     this.onSave = this.onSave.bind(this);
     this.onCancel = this.onCancel.bind(this);
