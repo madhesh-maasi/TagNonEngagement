@@ -20,6 +20,7 @@ export namespace Config {
     SplitReviews: "Split Reviews",
     CombineAdmin: "Combine Admin",
     SplitAdmin: "Split Admin",
+    QuestionText: "QuestionText",
   };
 
   export const ListCAMLFields = {};
@@ -35,7 +36,11 @@ export namespace Config {
     SortOrder: "SortOrder",
     Title: "Title",
   };
-
+  //technorucs changes
+  export const QuestionText = {
+    ServiceLine: "Service_x0020_Line",
+    Title: "Title",
+  };
   // Key Value pair of Employee Summary list column title and internal names
   export const EmployeeSummaryListColumns = {
     ANMExperience: "A_x0026_M_x0020_Experience",
@@ -337,7 +342,7 @@ export namespace Config {
     BQ8: "OData__x0042_DQ8",
     BQ9: "OData__x0042_DQ9",
     BQ10: "OData__x0042_DQ10",
-    
+
     RDQ6: "OData__x0052_DQ6",
     RDQ7: "OData__x0052_DQ7",
     RDQ8: "OData__x0052_DQ8",

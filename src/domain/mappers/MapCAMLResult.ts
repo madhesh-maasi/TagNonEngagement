@@ -640,7 +640,7 @@ export default class MapCAMLResult extends ContextService {
     result.Id = user["id"];
     result.LoginName = user["sip"];
 
-    if (result.LoginName.indexOf("i:0#") < 0) {
+    if (result.LoginName?.indexOf("i:0#") < 0) {
       result.LoginName = "i:0#.f|membership|" + result.Email;
     }
 

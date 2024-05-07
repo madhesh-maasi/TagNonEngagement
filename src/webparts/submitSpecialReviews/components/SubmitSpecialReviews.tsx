@@ -96,6 +96,7 @@ export default class SubmitSpecialReviews extends React.Component<
   public async componentDidMount() {
     console.log(this.props.AppContext);
     this.FillProjectStatusOptions();
+    // this.FillService();
     this.FillServiceLineOptions();
     if (this.state.IsCreateMode) {
       this.setState({
@@ -144,6 +145,27 @@ export default class SubmitSpecialReviews extends React.Component<
     }
     this.ProjectStatusOptions = GetServiceLineOption;
   }
+
+  // private async FillService() {
+  //   this.ListItemService = new ListItemService(
+  //     this.props.AppContext,
+  //     Config.ListNames.QuestionText
+  //   );
+  //   let GetServiceLine = await this.ListItemService.getFieldChoices(
+  //     Config.QuestionText.ServiceLine
+  //   );
+  //   let GetServiceLineOption: any[] = [];
+  //   if (GetServiceLine != undefined) {
+  //     var j = 0;
+  //     for (var i = 0; i < Object.keys(GetServiceLine).length; i++) {
+  //       var qData = {};
+  //       qData["text"] = GetServiceLine[Object.keys(GetServiceLine)[i]];
+  //       qData["key"] = GetServiceLine[Object.keys(GetServiceLine)[i]];
+  //       GetServiceLineOption.push(qData);
+  //     }
+  //   }
+  //   console.log(GetServiceLineOption, "get option");
+  // }
   private async FillServiceLineOptions() {
     this.ListItemService = new ListItemService(
       this.props.AppContext,
@@ -175,8 +197,19 @@ export default class SubmitSpecialReviews extends React.Component<
         }
       }
     }
+    //technorucs change
+    GetServiceLineOptionAll.push({
+      text: "Engineer Level 1",
+      key: "Engineer Level 1",
+    });
+    GetServiceLineOptionAll.push({
+      text: "Engineer Level 2",
+      key: "Engineer Level 2",
+    });
     this.ServiceLineOptions = GetServiceLineOption;
     this.ServiceLineOptionsAll = GetServiceLineOptionAll;
+    console.log(GetServiceLineOption, "drop1");
+    console.log(GetServiceLineOptionAll, "drop2");
   }
   private async onChangeRevieweeName(items: any[]) {
     let curretState = this.state.SpecialReviews;
